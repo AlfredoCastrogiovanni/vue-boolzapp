@@ -43,6 +43,18 @@
                             <input type="text">
                         </div>
                     </header>
+                    <div class="chatShelf">
+                        <div class="chat" v-for="chat in contacts">
+                            <div class="imgWrapper">
+                                <img :src="chat.avatar" :alt="chat.name + ' \'s avatar'">
+                            </div>
+                            <div class="info">
+                                <p class="chatName">{{ chat.name }}</p>
+                                <p class="lastMessage">Ultimo messaggio inviato</p>
+                            </div>
+                            <div class="timeLastMesagge">12:00</div>
+                        </div>
+                    </div>
                 </aside>
                 <main>
 

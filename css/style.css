@@ -15,3 +15,44 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.wrapper {
+    max-width: calc(100vw - 20rem);
+    height: calc(100vh - 4rem);
+    margin: 2rem 10rem;
+    display: flex;
+}
+
+.wrapper aside {
+    width: 35%;
+    background-color: rgb(206, 67, 67);
+}
+
+aside header {
+    width: 100%;
+}
+
+aside header .userMenu {
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+aside header .userMenu .user img {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.35rem;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+aside header .userMenu .user .userName {
+    font-size: 16px;
+    vertical-align: super;
+}
+
+.wrapper main {
+    width: 65%;
+    background-color: rgb(58, 58, 192);
+}

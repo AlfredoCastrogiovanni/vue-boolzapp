@@ -44,7 +44,7 @@
                         </div>
                     </header>
                     <div class="chatShelf">
-                        <div class="chat" v-for="chat in contacts">
+                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)">
                             <div class="imgWrapper">
                                 <img :src="chat.avatar" :alt="chat.name + ' \'s avatar'">
                             </div>
@@ -57,12 +57,47 @@
                     </div>
                 </aside>
                 <main>
-
+                    <header>
+                        <div class="contactInfo">
+                            <div class="imgWrapper">
+                                <img :src="contacts[activeIndex].avatar" :alt="contacts[activeIndex].name + ' \'s avatar'">
+                            </div>
+                            <div class="info">
+                                <p class="contactName">{{ contacts[activeIndex].name }}</p>
+                                <p class="lastLogin">Ultimo accesso oggi alle 12:00</p>
+                            </div>
+                        </div>
+                        <div class="contactButtons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </header>
+                    <div class="chatBox">
+                        <div class="row" v-for="element in contacts[activeIndex].messages">
+                            <div class="messageWrapper" :class="element.status == 'sent' ? 'sent' : 'received'">
+                                <p class="message">{{ element.message }}</p>
+                                <p class="messageTime">{{ getTime() }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chatInput">
+                        <div class="wrapper">
+                            <div class="emoteWrapper">
+                                <i class="fa-regular fa-face-smile"></i>
+                            </div>
+                            <input type="text">
+                            <div class="vocalWrapper">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
         <!-- Script JS -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
         <script src="js/index.js"></script>
     </body>
 </html>

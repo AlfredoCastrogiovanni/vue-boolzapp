@@ -1,0 +1,17 @@
+/* Imported Font */
+@import url();
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Classes */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../img/background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

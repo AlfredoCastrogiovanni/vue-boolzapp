@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="2000px" height="2000px" >
+    <defs>
+    <linearGradient id="lgrad" x1="50%" y1="0%" x2="50%" y2="100%" >
+    
+        <stop offset="5%" style="stop-color:rgb(0,150,136);stop-opacity:1.00" />
+        <stop offset="5%" style="stop-color:rgb(217,219,212);stop-opacity:1.00" />
+
+    </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#lgrad)"/>
+</svg>

@@ -10,7 +10,7 @@
 
 /* General Classes */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-image: url("../img/background.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,11 +21,11 @@ body {
     height: calc(100vh - 4rem);
     margin: 2rem 10rem;
     display: flex;
+    background-color: white;
 }
 
 .wrapper aside {
     width: 35%;
-    background-color: rgb(206, 67, 67);
 }
 
 aside header {
@@ -33,14 +33,21 @@ aside header {
 }
 
 aside header .userMenu {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+}
+
+aside header .userMenu .user {
+    display: flex;
+    align-items: center;
 }
 
 aside header .userMenu .user img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-right: 0.35rem;
     display: inline-block;
     border-radius: 50%;
@@ -50,6 +57,72 @@ aside header .userMenu .user img {
 aside header .userMenu .user .userName {
     font-size: 16px;
     vertical-align: super;
+}
+
+aside header .userButtons > i {
+    margin-right: 1rem;
+    font-size: 22px;
+    color: #b1b1b1;
+}
+
+aside header .notification {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background-color: #8edafc;
+}
+
+aside header .notification .icon-wrapper {
+    width: 45px;
+    height: 45px;
+    margin-right: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside header .notification .icon-wrapper i {
+    color: #8edafc;
+    font-size: 18px;
+}
+
+aside header .notification .text-wrapper p:first-child {
+    font-size: 13px;
+
+}
+
+aside header .notification .text-wrapper p:last-child {
+    font-size: 10px;
+    text-decoration: underline;
+    color: #5b5a5a;
+}
+
+aside header .searchbar {
+    display: flex;
+    align-items: center;
+    padding: 0.45rem 0.5rem;
+    background-color: #eaeaea;
+}
+
+aside header .searchbar .input-button {
+    background-color: white;
+    padding: 0 1rem;
+    height: 35px;
+}
+
+aside header .searchbar .input-button i {
+    line-height: 35px;
+    color: #b1b1b1;
+}
+
+aside header .searchbar input {
+    background-color: white;
+    border: none;
+    width: 100%;
+    height: 35px;
+    padding: 0.50rem 0;
 }
 
 .wrapper main {

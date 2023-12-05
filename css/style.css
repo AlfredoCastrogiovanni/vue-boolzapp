@@ -195,6 +195,7 @@ aside .chatShelf .chat .timeLastMesagge {
 
 .wrapper main {
     width: 65%;
+    overflow: hidden;
 }
 
 main header {
@@ -246,6 +247,7 @@ main .chatBox {
     background-image: url("../img/mine.jpg");
     height: calc(100% - 160px);
     padding-top: 3rem;
+    overflow-y: auto;
 }
 
 main .chatBox .row {
@@ -268,6 +270,19 @@ main .chatBox .row .messageWrapper .messageTime {
     position: absolute;
     bottom: 4px;
     right: 8px;
+}
+
+main .chatBox .row .messageWrapper .messageOptions {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+main .chatBox .row .messageWrapper:hover .messageOptions {
+    display: block;
 }
 
 main .chatInput {

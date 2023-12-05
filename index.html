@@ -78,6 +78,9 @@
                             <div class="messageWrapper" :class="element.status == 'sent' ? 'sent' : 'received'">
                                 <p class="message">{{ element.message }}</p>
                                 <p class="messageTime">{{ getMessageTime(element.date) }}</p>
+                                <div class="messageOptions">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
                             </div>
                         </div>
                     </div>

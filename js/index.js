@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             activeIndex: 0,
+            newMessage: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -172,5 +173,14 @@ createApp({
 
     methods: {
         changeChat(index) { this.activeIndex = index },
+        getMessageTime: messageTime => luxon.DateTime.fromFormat(messageTime, "dd/LL/yyyy HH:mm:ss").toFormat("HH:mm"),
+        getTime: () => luxon.DateTime.now().toFormat("dd/LL/yyyy HH:mm:ss"),
+        addMessage() {
+            this.newMessage != "" ? this.contacts[this.activeIndex].messages.push({ date: this.getTime(), message: this.newMessage, status: 'sent'}) : alert("Insert valid text!");
+            this.newMessage = "";
+            setTimeout(() => {
+                this.contacts[this.activeIndex].messages.push({ date: this.getTime(), message: "Ok", status: 'received'});
+            }, 1000);
+        }
     },
 }).mount('#app')

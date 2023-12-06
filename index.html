@@ -74,12 +74,16 @@
                         </div>
                     </header>
                     <div class="chatBox">
-                        <div class="row" v-for="element in contacts[activeIndex].messages">
+                        <div class="row" v-for="(element, index) in contacts[activeIndex].messages">
                             <div class="messageWrapper" :class="element.status == 'sent' ? 'sent' : 'received'">
                                 <p class="message">{{ element.message }}</p>
                                 <p class="messageTime">{{ getMessageTime(element.date) }}</p>
                                 <div class="messageOptions">
                                     <i class="fa-solid fa-chevron-down"></i>
+                                    <ul class="dropdown-menu">
+                                        <li>Message Info</li>
+                                        <li @click="removeMessage(index, activeIndex)">Delete Message</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

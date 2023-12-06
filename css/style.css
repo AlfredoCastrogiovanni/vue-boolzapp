@@ -255,7 +255,6 @@ main .chatBox .row {
     padding: 0.5rem 4rem;
     display: grid;
     position: relative;
-    z-index: 0;
 }
 
 main .chatBox .row .messageWrapper {
@@ -300,7 +299,7 @@ main .chatBox .row .messageWrapper .messageOptions .dropdown-menu {
     position: absolute;
     left: -140px;
     bottom: -100px;
-    z-index: 1;
+    z-index: 5;
     
     background-color: white;
     list-style: none;

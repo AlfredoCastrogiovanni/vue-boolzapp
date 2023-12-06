@@ -50,9 +50,9 @@
                             </div>
                             <div class="info">
                                 <p class="chatName">{{ chat.name }}</p>
-                                <p class="lastMessage">{{ contacts[index].messages[contacts[index].messages.length - 1].message }}</p>
+                                <p class="lastMessage">{{  contacts[index].messages.length >= 1 ? contacts[index].messages[contacts[index].messages.length - 1].message : '' }}</p>
                             </div>
-                            <div class="timeLastMesagge">{{ getMessageTime(contacts[index].messages[contacts[index].messages.length - 1].date) }}</div>
+                            <div class="timeLastMessagge">{{ contacts[index].messages.length >= 1 ? getMessageTime(contacts[index].messages[contacts[index].messages.length - 1].date) : "" }}</div>
                         </div>
                     </div>
                 </aside>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="info">
                                 <p class="contactName">{{ contacts[activeIndex].name }}</p>
-                                <p class="lastLogin">Ultimo accesso oggi alle {{ getMessageTime(contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date) }}</p>
+                                <p class="lastLogin"> {{ contacts[activeIndex].messages.length >= 1 ? "Ultimo accesso oggi alle" + getMessageTime(contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date) : "" }}</p>
                             </div>
                         </div>
                         <div class="contactButtons">
@@ -88,9 +88,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="defaultChat" v-else>
-                            No more message
                         </div>
                     </div>
                     <div class="chatInput">

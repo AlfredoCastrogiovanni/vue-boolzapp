@@ -40,7 +40,7 @@
                             <div class="input-button">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
-                            <input type="text">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </header>
                     <div class="chatShelf">
@@ -74,18 +74,23 @@
                         </div>
                     </header>
                     <div class="chatBox">
-                        <div class="row" v-for="(element, index) in contacts[activeIndex].messages" :style="{ 'z-index': 100 - index }">
-                            <div class="messageWrapper" :class="element.status == 'sent' ? 'sent' : 'received'">
-                                <p class="message">{{ element.message }}</p>
-                                <p class="messageTime">{{ getMessageTime(element.date) }}</p>
-                                <div class="messageOptions">
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                    <ul class="dropdown-menu">
-                                        <li>Message Info</li>
-                                        <li @click="removeMessage(index, activeIndex)">Delete Message</li>
-                                    </ul>
+                        <div class="boxWrapper" v-if="contacts[activeIndex].messages.length >= 1">
+                            <div class="row" v-for="(element, index) in contacts[activeIndex].messages" :style="{ 'z-index': 100 - index }">
+                                <div class="messageWrapper" :class="element.status == 'sent' ? 'sent' : 'received'">
+                                    <p class="message">{{ element.message }}</p>
+                                    <p class="messageTime">{{ getMessageTime(element.date) }}</p>
+                                    <div class="messageOptions">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                        <ul class="dropdown-menu">
+                                            <li>Message Info</li>
+                                            <li @click="removeMessage(index, activeIndex)">Delete Message</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="defaultChat" v-else>
+                            No more message
                         </div>
                     </div>
                     <div class="chatInput">
@@ -93,7 +98,7 @@
                             <div class="emoteWrapper">
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
-                            <input type="text" @keyup.enter="addMessage()" v-model="newMessage">
+                            <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addMessage()" v-model="newMessage">
                             <div class="vocalWrapper">
                                 <i class="fa-solid fa-microphone"></i>
                             </div>

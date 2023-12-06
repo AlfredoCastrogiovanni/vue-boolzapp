@@ -176,8 +176,10 @@ createApp({
         getMessageTime: messageTime => luxon.DateTime.fromFormat(messageTime, "dd/LL/yyyy HH:mm:ss").toFormat("HH:mm"),
         getTime: () => luxon.DateTime.now().toFormat("dd/LL/yyyy HH:mm:ss"),
 
-        removeMessage(index, activeIndex) {
-            this.contacts[activeIndex].messages.splice(index, 1);
+        removeMessage(index, activeIndex) { 
+            this.contacts[activeIndex].messages.splice(index, 1); 
+            console.log(this.contacts[activeIndex].messages);
+            console.log(this.contacts[activeIndex].messages.length);
         },
 
         addMessage() {

@@ -13,20 +13,26 @@
     </head>
     <body>
         <div id="app">
+            <!-- WRAPPER -->
             <div class="wrapper">
+                <!-- ASIDE -->
                 <aside>
+                    <!-- HEADER -->
                     <header>
+                        <!-- USERMENU -->
                         <div class="userMenu">
                             <div class="user">
                                 <img src="img/avatar_io.jpg" alt="User ProPic">
                                 <p class="userName">Sofia</p>
                             </div>
+                            <!-- USERBUTTONS -->
                             <div class="userButtons">
                                 <i class="fa-solid fa-circle-notch"></i>
                                 <i class="fa-solid fa-message"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
+                        <!-- NOTIFICATION -->
                         <div class="notification">
                             <div class="icon-wrapper">
                                 <i class="fa-solid fa-bell-slash"></i>
@@ -36,6 +42,7 @@
                                 <p>Attiva notifiche desktop</p>
                             </div>
                         </div>
+                        <!-- SEARCHBAR -->
                         <div class="searchbar">
                             <div class="input-button">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -43,6 +50,7 @@
                             <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </header>
+                    <!-- CHATSHELF -->
                     <div class="chatShelf">
                         <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)">
                             <div class="imgWrapper">
@@ -56,25 +64,31 @@
                         </div>
                     </div>
                 </aside>
+                <!-- MAIN -->
                 <main>
+                    <!-- HEADER -->
                     <header>
+                        <!-- CONTACTINFO -->
                         <div class="contactInfo">
                             <div class="imgWrapper">
                                 <img :src="contacts[activeIndex].avatar" :alt="contacts[activeIndex].name + ' \'s avatar'">
                             </div>
                             <div class="info">
                                 <p class="contactName">{{ contacts[activeIndex].name }}</p>
-                                <p class="lastLogin"> {{ contacts[activeIndex].messages.length >= 1 ? "Ultimo accesso oggi alle" + getMessageTime(contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date) : "" }}</p>
+                                <p class="lastLogin"> {{ contacts[activeIndex].messages.length >= 1 ? "Ultimo accesso oggi alle " + getMessageTime(contacts[activeIndex].messages[contacts[activeIndex].messages.length - 1].date) : "" }}</p>
                             </div>
                         </div>
+                        <!-- CONTACTBUTTONS -->
                         <div class="contactButtons">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
+                    <!-- CHATBOX -->
                     <div class="chatBox">
                         <div class="boxWrapper" v-if="contacts[activeIndex].messages.length >= 1">
+                            <!-- ROW FOREACH MESSAGE -->
                             <div class="row" v-for="(element, index) in contacts[activeIndex].messages" :style="{ 'z-index': 100 - index }">
                                 <div class="messageWrapper" :class="element.status == 'sent' ? 'sent' : 'received'">
                                     <p class="message">{{ element.message }}</p>
@@ -90,6 +104,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- CHATINPUT -->
                     <div class="chatInput">
                         <div class="wrapper">
                             <div class="emoteWrapper">

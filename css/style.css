@@ -169,7 +169,7 @@ aside .chatShelf .chat:hover {
     background-color: rgb(250, 250, 250);
 }
 
-aside .chatShelf .chat .imgWrapper {
+aside .chatShelf .chat .proPicWrapper {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -177,8 +177,21 @@ aside .chatShelf .chat .imgWrapper {
     margin-right: 0.75rem;
 }
 
-aside .chatShelf .chat .imgWrapper img {
+aside .chatShelf .chat .proPicWrapper img {
     width: 100%;
+}
+
+aside .chatShelf .chat .proPicWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .chatShelf .chat .proPicWrapper span {
+    font-size: 20px;
 }
 
 aside .chatShelf .chat .info .chatName {
@@ -219,7 +232,7 @@ main header .contactInfo {
     display: flex;
 }
 
-main header .contactInfo .imgWrapper {
+main header .contactInfo .proPicWrapper {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -227,8 +240,21 @@ main header .contactInfo .imgWrapper {
     margin-right: 0.5rem;
 }
 
-main header .contactInfo .imgWrapper img {
+main header .contactInfo .proPicWrapper img {
     width: 100%;
+}
+
+main header .contactInfo .proPicWrapper .proPicDefault  {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main header .contactInfo .proPicWrapper .proPicDefault span {
+    font-size: 20px;
 }
 
 main header .contactInfo .contactName {

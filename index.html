@@ -28,7 +28,7 @@
                             <!-- USERBUTTONS -->
                             <div class="userButtons">
                                 <i class="fa-solid fa-circle-notch"></i>
-                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-message" @click="addContact()"></i>
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
@@ -53,8 +53,13 @@
                     <!-- CHATSHELF -->
                     <div class="chatShelf">
                         <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)">
-                            <div class="imgWrapper">
-                                <img :src="chat.avatar" :alt="chat.name + ' \'s avatar'">
+                            <div class="proPicWrapper">
+                                <div v-if="chat.avatar != ''">
+                                    <img :src="chat.avatar" :alt="chat.name + '\'s avatar'">
+                                </div>
+                                <div v-else>
+                                    <div class='proPicDefault'><span>{{ getInitials(chat.name) }}</span></div>
+                                </div>
                             </div>
                             <div class="info">
                                 <p class="chatName">{{ chat.name }}</p>
@@ -70,8 +75,13 @@
                     <header>
                         <!-- CONTACTINFO -->
                         <div class="contactInfo">
-                            <div class="imgWrapper">
-                                <img :src="contacts[activeIndex].avatar" :alt="contacts[activeIndex].name + ' \'s avatar'">
+                            <div class="proPicWrapper">
+                                <div v-if="contacts[activeIndex].avatar != ''">
+                                    <img :src="contacts[activeIndex].avatar" :alt="contacts[activeIndex].name + ' \'s avatar'">
+                                </div>
+                                <div v-else>
+                                    <div class='proPicDefault'><span>{{ getInitials(contacts[activeIndex].name) }}</span></div>
+                                </div>
                             </div>
                             <div class="info">
                                 <p class="contactName">{{ contacts[activeIndex].name }}</p>

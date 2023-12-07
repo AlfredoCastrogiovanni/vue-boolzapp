@@ -182,6 +182,18 @@ createApp({
             setTimeout(() => {
                 this.contacts[this.activeIndex].messages.push({ date: this.getTime(), message: "Ok", status: 'received'});
             }, 1000);
+        },
+        addContact() {
+            const newContact = prompt("Inserisci il nuove utente: ");
+            this.contacts.push({ name: newContact , avatar: '', visible: true, messages: [] });
+        },
+        getInitials(name) {
+            let parts = name.split(' ');
+            let initials = '';
+            for (let i = 0; i < parts.length; i++) {
+                if (parts[i] !== '') initials += parts[i][0];
+            }
+            return initials;
         }
     },
 }).mount('#app')

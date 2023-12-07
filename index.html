@@ -52,7 +52,7 @@
                     </header>
                     <!-- CHATSHELF -->
                     <div class="chatShelf">
-                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)">
+                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)" @contextmenu="openContextMenu">
                             <div class="proPicWrapper">
                                 <div v-if="chat.avatar != ''">
                                     <img :src="chat.avatar" :alt="chat.name + '\'s avatar'">
@@ -67,6 +67,10 @@
                             </div>
                             <div class="timeLastMessagge">{{ contacts[index].messages.length >= 1 ? getMessageTime(contacts[index].messages[contacts[index].messages.length - 1].date) : "" }}</div>
                         </div>
+                        <ul class="contextmenu">
+                            <li>Chat Info</li>
+                            <li>Delete chat</li>
+                        </ul>
                     </div>
                 </aside>
                 <!-- MAIN -->

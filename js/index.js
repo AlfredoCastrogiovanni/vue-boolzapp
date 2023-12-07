@@ -194,6 +194,20 @@ createApp({
                 if (parts[i] !== '') initials += parts[i][0];
             }
             return initials;
+        },
+        openContextMenu(event, index) {
+            event.preventDefault();
+            
+            let contextmenu = document.querySelector("aside .chatShelf .contextmenu");
+            let x = event.pageX, y = event.pageY;
+
+            contextmenu.style.left = `${x}px`;
+            contextmenu.style.top = `${y}px`;
+            contextmenu.style.visibility = "visible";
+
+            document.addEventListener("click", () => {
+                contextmenu.style.visibility = "hidden";
+            });
         }
     },
 }).mount('#app')

@@ -176,6 +176,11 @@ createApp({
         getMessageTime: messageTime => luxon.DateTime.fromFormat(messageTime, "dd/LL/yyyy HH:mm:ss").toFormat("HH:mm"),
         getTime: () => luxon.DateTime.now().toFormat("dd/LL/yyyy HH:mm:ss"),
         removeMessage(index, activeIndex) { this.contacts[activeIndex].messages.splice(index, 1); },
+        deleteChat(index) { this.contacts.splice(index,1); },
+        uploadAvatar() {
+            let newAvatar = prompt("Inserisci il link all'immagine: ").trim();
+            this.contacts[this.activeIndex].avatar = newAvatar;
+        },
         addMessage() {
             this.newMessage != "" ? this.contacts[this.activeIndex].messages.push({ date: this.getTime(), message: this.newMessage, status: 'sent'}) : alert("Insert valid text!");
             this.newMessage = "";
@@ -197,7 +202,7 @@ createApp({
         },
         openContextMenu(event, index) {
             event.preventDefault();
-            
+
             let contextmenu = document.querySelector("aside .chatShelf .contextmenu");
             let x = event.pageX, y = event.pageY;
 

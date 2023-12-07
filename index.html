@@ -52,7 +52,7 @@
                     </header>
                     <!-- CHATSHELF -->
                     <div class="chatShelf">
-                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)" @contextmenu="openContextMenu">
+                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)" @contextmenu="openContextMenu($event); changeChat(index)">
                             <div class="proPicWrapper">
                                 <div v-if="chat.avatar != ''">
                                     <img :src="chat.avatar" :alt="chat.name + '\'s avatar'">
@@ -69,7 +69,8 @@
                         </div>
                         <ul class="contextmenu">
                             <li>Chat Info</li>
-                            <li>Delete chat</li>
+                            <li @click="uploadAvatar()">Upload Avatar</li>
+                            <li @click="deleteChat(index)">Delete chat</li>
                         </ul>
                     </div>
                 </aside>

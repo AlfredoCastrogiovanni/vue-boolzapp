@@ -47,12 +47,12 @@
                             <div class="input-button">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </div>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContent">
                         </div>
                     </header>
                     <!-- CHATSHELF -->
                     <div class="chatShelf">
-                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)" @contextmenu="openContextMenu($event); changeChat(index)">
+                        <div class="chat" v-for="(chat, index) in contacts" :class="index == activeIndex ? 'active' : ''" @click="changeChat(index)" @contextmenu="openContextMenu($event); changeChat(index)" v-show="search(chat.name)">
                             <div class="proPicWrapper">
                                 <div v-if="chat.avatar != ''">
                                     <img :src="chat.avatar" :alt="chat.name + '\'s avatar'">

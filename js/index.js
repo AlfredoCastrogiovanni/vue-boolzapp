@@ -5,6 +5,7 @@ createApp({
         return {
             activeIndex: 0,
             newMessage: "",
+            searchContent: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -172,11 +173,17 @@ createApp({
     },
 
     methods: {
-        changeChat(index) { this.activeIndex = index },
+        changeChat(index) { 
+            this.activeIndex = index;
+        },
         getMessageTime: messageTime => luxon.DateTime.fromFormat(messageTime, "dd/LL/yyyy HH:mm:ss").toFormat("HH:mm"),
         getTime: () => luxon.DateTime.now().toFormat("dd/LL/yyyy HH:mm:ss"),
-        removeMessage(index, activeIndex) { this.contacts[activeIndex].messages.splice(index, 1); },
-        deleteChat(index) { this.contacts.splice(index,1); },
+        removeMessage(index, activeIndex) { 
+            this.contacts[activeIndex].messages.splice(index, 1); 
+        },
+        deleteChat(index) { 
+            this.contacts.splice(index,1); 
+        },
         uploadAvatar() {
             let newAvatar = prompt("Inserisci il link all'immagine: ").trim();
             this.contacts[this.activeIndex].avatar = newAvatar;
@@ -213,6 +220,9 @@ createApp({
             document.addEventListener("click", () => {
                 contextmenu.style.visibility = "hidden";
             });
+        },
+        search(name) {
+            return name.toLowerCase().includes(this.searchContent.toLowerCase()) ? true : false;
         }
     },
 }).mount('#app')
